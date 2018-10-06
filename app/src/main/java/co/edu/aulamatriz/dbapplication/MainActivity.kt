@@ -3,6 +3,7 @@ package co.edu.aulamatriz.dbapplication
 import android.app.LoaderManager
 import android.content.ContentValues
 import android.content.CursorLoader
+import android.content.Intent
 import android.content.Loader
 import android.database.Cursor
 import android.net.Uri
@@ -17,6 +18,7 @@ import android.view.MenuItem
 import co.edu.aulamatriz.dbapplication.adapters.CustomRecyclerAdapter
 import co.edu.aulamatriz.dbapplication.databases.DBHelper
 import co.edu.aulamatriz.dbapplication.providers.ExampleProvider
+import co.edu.aulamatriz.dbapplication.services.MyService
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -62,6 +64,33 @@ class MainActivity : AppCompatActivity(),
 
             syncData()
         }
+
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+//        startActivity(Intent(this, TabsActivity::class.java))
+    }
+
+    override fun onStart() {
+        super.onStart()
+        startService(Intent(this, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
+
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        stopService(Intent(this, MyService::class.java))
     }
 
 

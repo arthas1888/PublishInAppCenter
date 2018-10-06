@@ -4,16 +4,18 @@
     package="co.edu.aulamatriz.dbapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <permission
         android:name="co.edu.aulamatriz.e022fb94-c3f0-11e8-a355-529269fb1459.READ"
         android:protectionLevel="signature" />
+
     <application
         android:allowBackup="true"
+        android:debuggable="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:debuggable="false"
         android:theme="@style/AppTheme"
         tools:ignore="HardcodedDebugMode">
         <activity
@@ -32,6 +34,17 @@
             android:authorities="co.edu.aulamatriz.dbapplication.providers.ExampleProvider"
             android:exported="true"
             android:permission="co.edu.aulamatriz.e022fb94-c3f0-11e8-a355-529269fb1459.READ" />
+
+        <service
+            android:name=".services.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".TabsActivity"
+            android:launchMode="singleInstance"
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
