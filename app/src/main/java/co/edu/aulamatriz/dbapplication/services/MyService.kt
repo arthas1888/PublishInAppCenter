@@ -4,17 +4,28 @@ import android.app.Service
 import android.content.Intent
 import android.os.Handler
 import android.os.IBinder
+import android.support.v4.content.LocalBroadcastManager
 import android.util.Log
 
 class MyService : Service() {
 
+    companion object {
+        const val ACTION_FROM_SERVICE =
+                "co.edu.aulamatriz.dbapplication.services.ACTION_FROM_SERVICE"
+    }
+
     val handler = Handler()
     var runable: Runnable = Runnable {
-        Log.d("MyService", "mensaje desde el servicio")
+
         launchHandler()
     }
 
     private fun launchHandler() {
+
+        val intent = Intent(ACTION_FROM_SERVICE)
+        intent.putExtra("value", "mensaje desde el servicio")
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+        sendBroadcast(intent)
         handler.removeCallbacks(runable)
         handler.postDelayed(runable, 5 * 1000)
     }

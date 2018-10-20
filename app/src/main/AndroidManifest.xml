@@ -42,9 +42,18 @@
 
         <activity
             android:name=".TabsActivity"
-            android:launchMode="singleInstance"
             android:label="@string/title_activity_tabs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".receivers.MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="co.edu.aulamatriz.dbapplication.services.ACTION_FROM_SERVICE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
